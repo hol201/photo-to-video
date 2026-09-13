@@ -9,63 +9,14 @@
 </head>
 <body>
   <main class="shell">
-    <header class="topbar">
-      <div class="brand"><span class="mark">✦</span><span>PHOTO → MOTION</span></div>
-      <span class="private-badge">PERSONAL TOOL</span>
-    </header>
-
-    <section class="hero">
-      <div>
-        <p class="eyebrow">IMAGE TO VIDEO / PRIVATE WORKSPACE</p>
-        <h1>Оживите<br /><em>один кадр.</em></h1>
-        <p class="intro">Загрузите фотографию, опишите движение — и получите короткое кинематографичное видео.</p>
-      </div>
-      <div class="hero-orbit"><div class="orbit-dot"></div><span>RUNWAY API</span></div>
-    </section>
-
+    <header class="topbar"><div class="brand"><span class="mark">✦</span><span>PHOTO → MOTION</span></div><span class="private-badge">PERSONAL TOOL</span></header>
+    <section class="hero"><div><p class="eyebrow">IMAGE TO VIDEO / PHONE FIRST</p><h1>Оживите<br /><em>один кадр.</em></h1><p class="intro">Бесплатный режим запускается в Google Colab прямо с телефона — домашняя видеокарта не нужна.</p></div><div class="hero-orbit"><div class="orbit-dot"></div><span>COLAB GPU</span></div></section>
     <section class="workspace">
-      <div class="upload-card" id="dropzone">
-        <input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp" hidden />
-        <div id="emptyUpload" class="upload-empty">
-          <div class="upload-icon">↥</div>
-          <h2>Перетащите фото сюда</h2>
-          <p>или выберите файл · PNG, JPG, WEBP · до 5 МБ</p>
-          <button class="secondary" id="chooseButton">Выбрать фотографию</button>
-        </div>
-        <div id="previewWrap" class="preview-wrap hidden">
-          <img id="preview" alt="Предпросмотр фотографии" />
-          <button class="remove" id="removeImage" aria-label="Удалить изображение">×</button>
-          <div class="file-label" id="fileLabel"></div>
-        </div>
-      </div>
-
-      <div class="controls">
-        <label for="prompt">ОПИШИТЕ ДВИЖЕНИЕ</label>
-        <textarea id="prompt" maxlength="1000" placeholder="Например: медленное движение камеры вперёд, волосы развеваются на ветру, мягкий солнечный свет..."></textarea>
-        <div class="prompt-meta"><span>Будьте конкретны: камера, объект, свет, темп.</span><span id="counter">0 / 1000</span></div>
-
-        <div class="settings-row">
-          <div class="field"><label for="ratio">ФОРМАТ</label><select id="ratio"><option value="1280:720">16:9 · Landscape</option><option value="720:1280">9:16 · Portrait</option><option value="960:960">1:1 · Square</option><option value="1104:832">4:3 · Classic</option></select></div>
-          <div class="field"><label for="duration">ДЛИТЕЛЬНОСТЬ</label><select id="duration"><option value="5">5 секунд</option><option value="10">10 секунд</option><option value="2">2 секунды</option></select></div>
-        </div>
-
-        <button class="generate" id="generateButton"><span>Создать видео</span><span>↗</span></button>
-        <div id="status" class="status" role="status"></div>
-      </div>
+      <div class="upload-card" id="dropzone"><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp" hidden /><div id="emptyUpload" class="upload-empty"><div class="upload-icon">↥</div><h2>Добавьте фотографию</h2><p>PNG, JPG, WEBP · до 5 МБ</p><button class="secondary" id="chooseButton">Выбрать фотографию</button></div><div id="previewWrap" class="preview-wrap hidden"><img id="preview" alt="Предпросмотр фотографии" /><button class="remove" id="removeImage" aria-label="Удалить изображение">×</button><div class="file-label" id="fileLabel"></div></div></div>
+      <div class="controls"><label for="prompt">ОПИШИТЕ ДВИЖЕНИЕ</label><textarea id="prompt" maxlength="1000" placeholder="Например: slow cinematic camera push-in, hair moving in the wind, soft sunlight..."></textarea><div class="prompt-meta"><span>Для CogVideoX лучше использовать английский.</span><span id="counter">0 / 1000</span></div><div class="settings-row"><div class="field"><label for="ratio">ФОРМАТ</label><select id="ratio"><option>16:9 · Landscape</option><option>9:16 · Portrait</option><option>1:1 · Square</option></select></div><div class="field"><label for="duration">ДЛИТЕЛЬНОСТЬ</label><select id="duration"><option>6 секунд</option><option>5 секунд</option></select></div></div><button class="generate colab-button" id="colabButton"><span>Запустить бесплатно в Colab</span><span>↗</span></button><button class="secondary full" id="runwayButton">Платный режим Runway API</button><div id="status" class="status" role="status"></div></div>
     </section>
-
-    <details class="settings-panel">
-      <summary>Настройки API <span>Ключ хранится только в этом браузере</span></summary>
-      <div class="api-settings">
-        <label for="apiKey">RUNWAY API KEY</label>
-        <input id="apiKey" type="password" autocomplete="off" placeholder="Вставьте ключ Runway для личного использования" />
-        <p>Ключ сохраняется в localStorage этого браузера и никогда не записывается в GitHub. Не вводите его на чужом компьютере.</p>
-        <button class="secondary small" id="saveKey">Сохранить локально</button><span id="keySaved"></span>
-      </div>
-    </details>
-
-    <footer><span>Фото обрабатывается только при отправке на выбранный API.</span><span>GitHub Pages · private repository</span></footer>
-  </main>
-  <script src="app.js"></script>
-</body>
-</html>
+    <section class="how"><div><span class="step">01</span><strong>Откройте Colab</strong><p>Облачная среда запускается с телефона.</p></div><div><span class="step">02</span><strong>Загрузите фото</strong><p>Выберите изображение в ноутбуке.</p></div><div><span class="step">03</span><strong>Скачайте MP4</strong><p>Результат появится в конце ячеек.</p></div></section>
+    <details class="settings-panel"><summary>Настройки Runway API <span>не нужны для бесплатного режима</span></summary><div class="api-settings"><label for="apiKey">RUNWAY API KEY</label><input id="apiKey" type="password" autocomplete="off" placeholder="Вставьте ключ Runway для личного использования" /><p>Ключ сохраняется только в этом браузере и используется только в платном режиме.</p><button class="secondary small" id="saveKey">Сохранить локально</button><span id="keySaved"></span></div></details>
+    <footer><span>Бесплатная генерация: Google Colab + CogVideoX</span><span>GitHub Pages · public interface</span></footer>
+  </main><script src="app.js"></script>
+</body></html>
